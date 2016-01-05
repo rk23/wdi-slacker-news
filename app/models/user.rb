@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :email,
+  validates :email, :name,
             presence: true,
             uniqueness: {
                 case_sensitive: false

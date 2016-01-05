@@ -4,26 +4,26 @@
   <tr>
     <td id="navbar" bgcolor="#ff6600">
       <ul id="nav">
-        <li color="white">Y</li>
-        <li><strong>Slacker News</strong></li>
+        <li id="brand">S</li>
+        <li><strong><a href="/">Slacker News</a></strong></li>
         <li>new</li> |
         <li>comments</li> |
         <li>show</li> |
         <li>ask</li> |
         <li>jobs</li> |
-        <li>submit</li>
-        <li id="login">login</li>
+        <li><a href="/post">submit</a></li>
+        <li id="login"><a href="/login">login</a></li>
       </ul>
     </td>
   </tr>
-  <% @posts.each do |p| %>
+  <% i = 1; @posts.each do |p| %>
       <tr>
-        <td>
-          <p><%=p.title%><small>(<%=p.link%>)</small></p>
-          <p><small>points by </small>points</p>
+        <td class="row">
+          <span class="grey"><%= i %>. </span><div class="votearrow"></div><%=p.title%><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
+          <div class="small-text subtext"><small>0 points created at <%= p.created_at %> | 0 comments </small></div>
         </td>
       </tr>
-  <% end %>
+  <% i = i + 1 end %>
   </tbody>
 </table>
 

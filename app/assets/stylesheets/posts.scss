@@ -14,7 +14,7 @@ body {
 }
 
 #navbar {
-  width: 1000px;
+  width: 1200px;
 
   #nav {
     list-style: none;
@@ -23,12 +23,25 @@ body {
 
     li {
       display: inline-block;
-
+    }
+    a {
+      color: black;
+      text-decoration: none;
     }
 
   }
 }
-#login {
-  float: right;
-}
+#login {float: right;}
+#brand {color: white}
 
+.small-text {font-size:  8pt; color:#828282; }
+.grey {color:#828282;}
+.votearrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  background: url("grayarrow.gif") no-repeat;
+}
+.row {padding: 7px}
+.subtext {padding-left: 30px;}

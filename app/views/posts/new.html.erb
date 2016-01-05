@@ -1,8 +1,23 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<table>
+  <tbody>
+  <tr>
+    <td id="navbar" bgcolor="#ff6600">
+      <ul id="nav">
+        <li id="brand">S</li>
+        <li><strong>Submit</strong></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= form_for :post do |f| %>
+         <span class="grey">title</span> <%= f.text_field :title%><br>
+         <span class="grey">url</span> <%= f.text_field :link%><br>
+          <%= f.submit "Submit" %>
+      <% end %>
+      <p class="grey">Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>
+    </td>
+</table>
 
-<%= form_for :post do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %>
-    <%= f.text_field :link, placeholder: "Link" %>
-    <%= f.submit "Submit" %>
-<% end %>
+
+
