@@ -11,14 +11,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-
-
-  get 'posts/index'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
-
+  #Post routes
+  get '/post'   => 'posts#new'
+  post '/post'  => 'posts#create'
 
 end

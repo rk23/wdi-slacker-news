@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<% if @current_user %>
-    <p>Signed in as <%=@current_user.email%> | <%= link_to "Logout", "/logout" %></p>
-<% else %>
-    <p><%= link_to "Login", "/login" %> | <%= link_to "Signup", '/signup'%></p>
-<% end %>
+<!--<% if @current_user %>-->
+    <!--<p>Signed in as <%=@current_user.email%> | <%= link_to "Logout", "/logout" %></p>-->
+<!--<% else %>-->
+    <!--<p><%= link_to "Login", "/login" %> | <%= link_to "Signup", '/signup'%></p>-->
+<!--<% end %>-->
 
 <%= render "partials/flash" %>
 

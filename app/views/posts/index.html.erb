@@ -1,2 +1,30 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<table>
+  <tbody>
+  <tr>
+    <td id="navbar" bgcolor="#ff6600">
+      <ul id="nav">
+        <li color="white">Y</li>
+        <li><strong>Slacker News</strong></li>
+        <li>new</li> |
+        <li>comments</li> |
+        <li>show</li> |
+        <li>ask</li> |
+        <li>jobs</li> |
+        <li>submit</li>
+        <li id="login">login</li>
+      </ul>
+    </td>
+  </tr>
+  <% @posts.each do |p| %>
+      <tr>
+        <td>
+          <p><%=p.title%><small>(<%=p.link%>)</small></p>
+          <p><small>points by </small>points</p>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
