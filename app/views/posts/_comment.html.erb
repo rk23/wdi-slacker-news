@@ -1,7 +1,7 @@
 <% if comment.commentable_type == "Post"%>
-    <% @level = 0 %>
+	<% @level = 0 %>
 <% elsif comment.commentable_type == "Comment"%>
-    <% @level = 1 + @level %>
+	<% @level = 1 + @level %>
 <% end %>
 
 <div class="comment" style="margin-left: <%= @level * 50 %>px">

@@ -12,7 +12,6 @@
 <%= render "partials/flash" %>
 
 <!-- template table, including orange navbar -->
-<!-- see posts/index.html.erb for example of what to include in indiviual view yield -->
 <table>
   <tbody>
 	  <tr>
@@ -30,18 +29,20 @@
 						<% if @current_user %>
 							<p>signed in as <span style="font-style: italic"><%= link_to @current_user.name, "/user/" + @current_user.id.to_s %></span> | <%= link_to "logout", "/logout" %></p>
 						<% else %>
-							<p><%= link_to "login/signup", "/login" %> | <%= link_to "signup", '/signup'%></p>
+							<p><%= link_to "login/signup", "/login" %></p>
 						<% end %>
 	        </li>
 	      </ul>
 	    </td>
 	  </tr>
 
+	  <!-- see posts/index.html.erb for example of what to include in indiviual view yield -->
+			<!--  should start with <tr><td class="row"> -->
+			<!--  and end with </td></tr> -->
 		<%= yield %>
 
   </tbody>
 </table>
-
 
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
