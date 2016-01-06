@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   def create
     @post = @current_user.posts.create(post_params)
 
+    @upvote = Vote.create
+    @upvote.post_id = @post.id
+    @upvote.value = 0
+
     if @post.save
       flash[:success] = "Post created"
       redirect_to root_path
@@ -28,9 +32,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find params[:id]
+    @comments = @post.comments
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:title, :link)
   end
+
 end

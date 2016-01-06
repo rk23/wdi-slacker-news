@@ -20,7 +20,7 @@
       <tr>
         <td class="row">
           <span class="grey"><%= i %>. </span><div class="votearrow"></div><%=p.title%><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
-          <div class="small-text subtext"><small>0 points by <%= p.user.name %> created at <%= p.created_at %> | 0 comments </small></div>
+          <div class="small-text subtext"><small>0 points by <%= p.user.name %> created at <%= p.created_at %> | <a href="/show/<%= p.id%>"><%=p.comments.count %> comments</a> </small></div>
           <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
         </td>
       </tr>
