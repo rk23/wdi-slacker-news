@@ -3,6 +3,21 @@ class CommentsController < ApplicationController
     @comment = Comment.find params[:id]
   end
 
+  #For creating comment on post
+  def create
+    @post = Post.find params[:id]
+    @comment = @post.comments.create comment_params
+    @comment.user_id = current_user.id
+
+    if @comment.save
+      redirect_to "/post/" + params[:id]
+    else
+      flash[:danger] = "No success"
+      redirect_to "/"
+    end
+  end
+
+  #For creating comment on another comment
   def reply
     @comment = Comment.find params[:id]
     @new_comment = @comment.replies.create reply_params
@@ -11,25 +26,13 @@ class CommentsController < ApplicationController
 
     if @new_comment.save
       flash[:success] = "Success"
-      redirect_to(:back)
+      redirect_to "/reply/" + @comment.commentable_id.to_s
     else
       flash[:danger] = "No success"
       redirect_to "/reply/" + params[:id]
     end
   end
 
-  def create
-    @post = Post.find params[:id]
-    @comment = @post.comments.create comment_params
-    @comment.user_id = current_user.id
-
-    if @comment.save
-      redirect_to "/show/" + params[:id]
-    else
-      flash[:danger] = "No success"
-      redirect_to "/"
-    end
-  end
 
   private
 

@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find params[:id]
+    @comments = @post.comments
+  end
+
   def new
   end
 
@@ -16,7 +21,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Error: post not created"
-      redirect_to "/"
+      redirect_to root_path
     end
   end
 
@@ -28,10 +33,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find params[:id]
-    @comments = @post.comments
-  end
 
   private
 

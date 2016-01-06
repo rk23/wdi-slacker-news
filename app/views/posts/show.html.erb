@@ -1,34 +1,15 @@
-<table>
-  <tbody>
-  <tr>
-    <td id="navbar" bgcolor="#ff6600">
-      <ul id="nav">
-        <li id="brand">S</li>
-        <li><strong><a href="/">Slacker News</a></strong></li>
-        <li>new</li> |
-        <li>comments</li> |
-        <li>show</li> |
-        <li>ask</li> |
-        <li>jobs</li> |
-        <li><a href="/post">submit</a></li>
-        <li id="login"><a href="/login">login</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td class="row">
-      <div class="votearrow"></div><%=@post.title%><small> (<a class="small-text" href="<%=@post.link%>"><%=@post.link%></a>)</small>
-      <div class="small-text subtext"><small>0 points by <%= @post.user.name %> created at <%= @post.created_at %> | <%=@post.comments.count %> comments </small></div>
-      <%= form_for :comment do |f| %>
-          <%= f.hidden_field @post%>
-          <%= f.text_area :body %> <br>
-          <%= f.submit "Add comment" %>
-      <% end %>
-      <br>
-      <div id="comments">
-        <%= render partial: "comment", collection: @comments %>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<tr>
+  <td class="row">
+    <div class="votearrow"></div><%=@post.title%><small> (<a class="small-text" href="<%=@post.link%>"><%=@post.link%></a>)</small>
+    <div class="small-text subtext"><small>0 points by <%= link_to @post.user.name, "/user/" + @post.user.id.to_s %> created at <%= @post.created_at %> | <%=@post.comments.count %> comments </small></div>
+    <%= form_for :comment do |f| %>
+        <%= f.hidden_field @post%>
+        <%= f.text_area :body %> <br>
+        <%= f.submit "Add comment" %>
+    <% end %>
+    <br>
+    <div id="comments">
+      <%= render partial: "comment", collection: @comments %>
+    </div>
+  </td>
+</tr>
