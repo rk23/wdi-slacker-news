@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      flash[:success] = "User logged in"
       redirect_to root_path
     else
       flash[:danger] = "Invalid credentials"
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = "Logged out"
     redirect_to "/login"
   end
 
