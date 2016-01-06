@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   #Post routes
   get '/post'   => 'posts#new'
   post '/post'  => 'posts#create'
+  get '/show/:id'   => 'posts#show'
 
 end
