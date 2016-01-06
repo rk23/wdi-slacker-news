@@ -25,6 +25,7 @@
           <%= f.submit "Submit" %>
       <% end %>
       <% @comments.each do |c| %>
+          <div class="small-text subtext"><small><%= c.user.name %></small></div>
           <p><%=c.body%></p>
       <% end %>
     </td>
