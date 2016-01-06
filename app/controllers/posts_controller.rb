@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :is_authenticated?
 
   def index
-    @post = Post.all
+    @post = Post.all.sort_by{|x| x.total_votes}.reverse
   end
 
   def show
