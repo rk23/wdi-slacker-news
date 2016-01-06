@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105235108) do
+ActiveRecord::Schema.define(version: 20160106195232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20160105235108) do
     t.string   "title"
     t.string   "link"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "total_votes"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -48,6 +49,19 @@ ActiveRecord::Schema.define(version: 20160105235108) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.boolean  "vote"
+    t.integer  "user_id"
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id", using: :btree
+
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "votes", "users"
 end
