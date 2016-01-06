@@ -20,6 +20,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    result = Post.destroy params[:id]
+    respond_to do |format|
+      format.html {redirect_to :posts}
+      format.json {render json: result}
+    end
+  end
+
   private
 
   def post_params
