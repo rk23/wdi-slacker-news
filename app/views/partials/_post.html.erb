@@ -1,0 +1,11 @@
+<%= link_to "/posts/#{p.id}"%>
+    <i class='icon-arrow-up'></i>
+
+<%= p.up_votes %>
+<br/>
+<%= p.total_votes %> votes
+<br/>
+<%= link_to vote_post_path(p, vote: false), method: 'post' do %>
+    <i class='icon-arrow-down'></i>
+<%end %>
+<%= post.down_votes %>
