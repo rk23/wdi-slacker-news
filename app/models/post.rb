@@ -9,8 +9,8 @@ class Post < ActiveRecord::Base
   has_many  :comments, as: :commentable
   has_many :votes, as: :voteable
 
-   def total_votes
-    self.up_votes + self.down_votes
+  def total_votes
+    self.up_votes - self.down_votes
   end
   
   def up_votes

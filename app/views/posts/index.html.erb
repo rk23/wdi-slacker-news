@@ -1,19 +1,15 @@
 <% i = 1; @post.each do |p| %>
   <tr>
     <td class="row">
-      <%= link_to vote_post_path(p, vote: true), method: 'post' do %>
-    <i class='icon-arrow-up'>^</i>
-    <% end %>
-
-<%= p.up_votes %>
-<br/>
-<%= p.total_votes %> votes
-<br/>
-<%= link_to vote_post_path(p, vote: false), method: 'post' do %>
-    <i class='icon-arrow-down'>\/</i>
-<%end %>
-<%= p.down_votes %><%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%= p.link %>"><%= p.link %></a>)</small>
-      <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | 
+    	<%= link_to vote_post_path(p, vote: true), method: 'post' do %>
+    	<i class='icon-arrow-up'>^</i>
+    	<% end %>
+		<br/>
+		<%= link_to vote_post_path(p, vote: false), method: 'post' do %>
+    		<i class='icon-arrow-down'>\/</i>
+		<%end %>
+<%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%= p.link %>"><%= p.link %></a>)</small>
+      <div class="small-text subtext"><small><%= p.total_votes %> points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | 
 
       <a href="/post/<%= p.id %>"><%=p.comments.count %> comments</a>
 
