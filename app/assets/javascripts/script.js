@@ -19,7 +19,8 @@ $(document).ready(function (){
 			else if (data){
 				console.log('Hit else if', data);
 				$('.js-delete-btn').closest('tr').remove();
-			}
+                window.location = '/';
+            }
 		});
 	});
 });
