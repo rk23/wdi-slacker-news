@@ -11,10 +11,6 @@ class PostsController < ApplicationController
   def create
     @post = @current_user.posts.create(post_params)
 
-    @upvote = Vote.create
-    @upvote.post_id = @post.id
-    @upvote.value = 0
-
     if @post.save
       flash[:success] = "Post created"
       redirect_to root_path
