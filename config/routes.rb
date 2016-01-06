@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   #Post routes
   get '/post'   => 'posts#new'
   post '/post'  => 'posts#create'
-
+  delete '/post/:id' => 'posts#destroy'
 end
