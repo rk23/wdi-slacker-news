@@ -12,6 +12,8 @@
         <li>ask</li> |
         <li>jobs</li> |
         <li><a href="/post">submit</a></li>
+
+        <!-- DPTODO consolidate login buttons -->
         <li id="login"><a href="/login">login</a></li>
       </ul>
     </td>
@@ -20,11 +22,9 @@
       <tr>
         <td class="row">
           <span class="grey"><%= i %>. </span><div class="votearrow"></div><%=p.title%><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
-          <div class="small-text subtext"><small>0 points by <%= p.user.name %> created at <%= p.created_at %> | 0 comments </small></div>
+          <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/users/" + p.user.id.to_s %> created at <%= p.created_at %> | 0 comments </small></div>
         </td>
       </tr>
   <% i = i + 1 end %>
   </tbody>
 </table>
-
-

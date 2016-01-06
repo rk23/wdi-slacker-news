@@ -8,11 +8,14 @@
 </head>
 <body>
 
-<!--<% if @current_user %>-->
-    <!--<p>Signed in as <%=@current_user.email%> | <%= link_to "Logout", "/logout" %></p>-->
-<!--<% else %>-->
-    <!--<p><%= link_to "Login", "/login" %> | <%= link_to "Signup", '/signup'%></p>-->
-<!--<% end %>-->
+<!-- DPTODO change style -->
+<div style="background-color: #ccf2ff; padding: 2px; width: 25%">
+	<% if @current_user %>
+	    <p>Signed in as <span style="font-style: italic"><%= link_to @current_user.name, "/users/" + @current_user.id.to_s %></span> | <%= link_to "Logout", "/logout" %></p>
+	<% else %>
+	    <p><%= link_to "Login", "/login" %> | <%= link_to "Signup", '/signup'%></p>
+	<% end %>
+</div>
 
 <%= render "partials/flash" %>
 
