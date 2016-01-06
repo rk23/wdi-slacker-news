@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #User routes
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  get '/users/:id' => 'users#show'
 
   #Sessions routes
   get '/login'  => 'sessions#new'
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   get '/post'   => 'posts#new'
   post '/post'  => 'posts#create'
   delete '/post/:id' => 'posts#destroy'
+
 end
