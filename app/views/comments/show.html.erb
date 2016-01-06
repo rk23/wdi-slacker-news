@@ -1,0 +1,30 @@
+<table>
+  <tbody>
+  <tr>
+    <td id="navbar" bgcolor="#ff6600">
+      <ul id="nav">
+        <li id="brand">S</li>
+        <li><strong><a href="/">Slacker News</a></strong></li>
+        <li>new</li> |
+        <li>comments</li> |
+        <li>show</li> |
+        <li>ask</li> |
+        <li>jobs</li> |
+        <li><a href="/post">submit</a></li>
+        <li id="login"><a href="/login">login</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="row">
+      <div class="small-text subtext"><small><%= @comment.user.name %> <%= @comment.created_at%></small></div>
+      <p class="comment-text"><%=@comment.body%></p>
+      <br>
+      <%= form_for :this do |f| %>
+          <%= f.text_area :body %> <br>
+          <%= f.submit "Add reply" %>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   get '/post'   => 'posts#new'
   post '/post'  => 'posts#create'
   get '/post/:id' => 'posts#show'
-  delete '/post/:id' => 'posts#destroy'
+  # TODO consolidate '/show/:id' w/ '/post/:id'
+    delete '/post/:id' => 'posts#destroy'
+    get '/show/:id'   => 'posts#show'
+
+  #Comments routes
+  get  '/reply/:id' => 'comments#show'
+  post '/reply/:id' => 'comments#reply'
+  post '/show/:id'  => 'comments#create'
 
 end

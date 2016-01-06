@@ -1,12 +1,9 @@
 <% i = 1; @posts.each do |p| %>
-    <tr>
-      <td class="row">
-        <span class="grey"><%= i %>. </span><div class="votearrow"></div><%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
-
-        <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | 0 comments </small></div>
-
-        <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
-
-      </td>
-    </tr>
+  <tr>
+    <td class="row">
+      <span class="grey"><%= i %>. </span><div class="votearrow"></div><%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%= p.link %>"><%= p.link %></a>)</small>
+      <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | <a href="/show/<%= p.id %>"><%=p.comments.count %> comments</a> </small></div>
+      <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
+    </td>
+  </tr>
 <% i = i + 1 end %>
