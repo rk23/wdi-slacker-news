@@ -1,17 +1,50 @@
-<h4>Login</h4>
+<h4>Please login, or make a new account.</h4>
 
-<%= form_for :user do |f| %>
-    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
-    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
-    <%= f.submit "login" %>
-<% end %>
+<!-- <div class="modal-body" id="modal1">
+	<%= form_for :user do |f| %>
+	    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
+	    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
+	    <%= f.submit "login" %>
+	<% end %>
+</div> -->
+<!--   <a data-toggle="modal" href="#myModal1" class="btn btn-primary btn-lg">Sign In!</a>
+
+  <a data-toggle="modal" href="#myModal2" class="btn btn-primary btn-lg">Make new user</a> -->
+
+<div class="modal show col-md-6" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <h4 class="modal-title">Sign In</h4>
+	    </div>
+		  <div class="modal-body" id="modal1">
+			<%= form_for :user do |f| %>
+			    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
+			    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
+			    <%= f.submit "login" %>
+		 	<% end %>
+		 </div>
+	  </div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
-<h4>Create Account</h4>
+<div class="modal show col-md-6 col-md-offset-6" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <h4 class="modal-title">New User</h4>
+	    </div>
+		  <div class="modal-body raptor" id="modal2">
+			<h4>Create Account</h4>
 
-<%= form_for :user, url: "/users" do |f| %>
-    username: <%= f.text_field :name %> <br>
-    email: <%= f.text_field :email %> <br>
-    password: <%= f.password_field :password %> <br>
-    <%= f.submit "create account" %>
-<% end %>
+			<%= form_for :user, url: "/users" do |f| %>
+			    username: <%= f.text_field :name %> <br>
+			    email: <%= f.text_field :email %> <br>
+			    password: <%= f.password_field :password %> <br>
+			    <%= f.submit "create account" %>
+			<% end %>
+		  </div>
+	  </div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
