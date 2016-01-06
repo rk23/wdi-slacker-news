@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   get '/logout'       => 'sessions#destroy'
 
   #Post routes
-  # get '/post'         => 'posts#new'
-  # post '/post'        => 'posts#create'
-  # delete '/post/:id'  => 'posts#destroy'
-  # get '/post/:id'     => 'posts#show'
-  # post '/post/:id'    => 'comments#create'
+  get '/post'         => 'posts#new'
+  post '/post'        => 'posts#create'
+  delete '/post/:id'  => 'posts#destroy'
+  get '/post/:id'     => 'posts#show'
+  post '/post/:id'    => 'comments#create'
 
   resources :posts, except: [:destroy] do
     
