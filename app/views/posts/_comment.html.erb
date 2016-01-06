@@ -15,9 +15,15 @@
     <% end %>
 
 <% end %>
-
 <div class="comment" style="margin-left: <%= queue.pop * 50 + 10%>px">
-  <div class="small-text subtext"><small><%= comment.user.name %> <%= comment.created_at %></small></div>
+  <%= link_to vote_post_comment_path(comment.id, comment.id, vote: true), method: 'post' do %>
+    <i class='icon-arrow-up'>^</i>
+  <% end %>
+  <br/>
+  <%= link_to vote_post_comment_path(comment.id, comment.id, vote: false), method: 'post' do %>
+    <i class='icon-arrow-down'>\/</i>
+  <%end %>
+<div class="small-text subtext"><small><%= comment.total_votes %> points<%= comment.user.name %> <%= comment.created_at %></small></div>
   <p class="comment-text"><%=comment.body%></p>
   <a href="/reply/<%=comment.id %>"><div class="small-text subtext"><small>reply</small></div></a>
   <%= render partial: "comment", collection: comment.replies %>
