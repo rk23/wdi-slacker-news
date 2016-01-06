@@ -27,9 +27,9 @@
       </div>
       <div class="modal-body">
 <%= form_for :post do |f| %>
-         Title: <span class="grey">title</span> <%= f.text_field :title%><br>
-         Link:  <span class="grey">url</span> <%= f.text_field :link%><br>
-        <p class="grey">Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>
+         Title: <%= f.text_field :title%><br>
+         Link: <%= f.text_field :link%><br>
+        <h5>Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</h5>
           <%= f.submit "Submit" %>
       <% end %>
      </div>
