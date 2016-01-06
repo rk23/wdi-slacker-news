@@ -1,16 +1,27 @@
-<h1>User profile for <span style="font-style: italic"><%= @user.name %></span></h1>
+<tr>
+	<td class="row">
 
-<p>User since: <%= @user.created_at.to_s[0...10] %></p>
+		<h2><span style="font-style: italic;"><%= @user.name %></span></h2>
+		<div>user since: <%= @user.created_at.to_s[0...10] %></div>
 
-<div style="border: 2px solid gray">
-	<h4><%= @user.name %>'s posts</h4>
-	<% @posts.each do |p| %>
-		<div style="border: 1px solid black; background-color: orange">
-			<span style="font-weight: bold"><%= p.title %></span>
-			<br>
-			<%= p.link %>
-			<br>
-			<%= p.created_at %>
-		</div>
-	<% end %>
+		<div style="border-top: 2px solid gray;">
+		<div><%= @user.name %>'s posts</div>
+
+		<% i = 1; @posts.each do |p| %>
+		    <tr>
+		      <td class="row">
+		        <span class="grey"><%= i %>. </span><div class="votearrow"></div><%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
+
+		        <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | 0 comments </small></div>
+
+		        <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
+
+		      </td>
+		    </tr>
+			<% i = i + 1 %>
+		<% end %>
+
 </div>
+
+	</td>
+</tr>

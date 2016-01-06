@@ -1,0 +1,9 @@
+<div id="show_post">
+
+	<div class="votearrow"></div>
+
+	<%= @post.title %><small> (<a class="small-text" href="<%= @post.link %>"><%= @post.link %></a>)</small>
+
+	<div class="small-text subtext"><small>0 points by <%= link_to @post.user.name, "/user/" + @post.user.id.to_s %> created at <%= @post.created_at %> | 0 comments </small></div>
+
+</div>

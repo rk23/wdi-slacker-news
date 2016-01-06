@@ -31,8 +31,6 @@ body {
 
   }
 }
-#login {float: right;}
-#brand {color: white}
 
 .small-text {font-size:  8pt; color:#828282; }
 .grey {color:#828282;}
@@ -54,4 +52,8 @@ body {
 } 
 .modal {
   top: 10%
+}
+
+#show_post {
+  background-color: rgb(246, 246, 239);
 }
