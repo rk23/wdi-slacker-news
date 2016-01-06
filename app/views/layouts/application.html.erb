@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>WdiSlackerNews</title>
- 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,18 +9,41 @@
 </head>
 <body>
 
-<!-- DPTODO change style -->
-<div style="background-color: #ccf2ff; padding: 2px; width: 25%">
-	<% if @current_user %>
-	    <p>Signed in as <span style="font-style: italic"><%= link_to @current_user.name, "/users/" + @current_user.id.to_s %></span> | <%= link_to "Logout", "/logout" %></p>
-	<% else %>
-	    <p><%= link_to "Login", "/login" %> | <%= link_to "Signup", '/signup'%></p>
-	<% end %>
-</div>
-
 <%= render "partials/flash" %>
 
-<%= yield %>
+<!-- template table, including orange navbar -->
+<table>
+  <tbody>
+	  <tr>
+	    <td id="navbar" bgcolor="#ff6600">
+	      <ul id="nav">
+	        <li id="brand">S</li>
+	        <li><strong><a href="/">Slacker News</a></strong></li>
+	        <li>new</li> |
+	        <li>comments</li> |
+	        <li>show</li> |
+	        <li>ask</li> |
+	        <li>jobs</li> |
+	        <li><a href="/post">submit</a></li>
+	        <li id="login">
+						<% if @current_user %>
+							<p>signed in as <span style="font-style: italic"><%= link_to @current_user.name, "/user/" + @current_user.id.to_s %></span> | <%= link_to "logout", "/logout" %></p>
+						<% else %>
+							<p><%= link_to "login/signup", "/login" %></p>
+						<% end %>
+	        </li>
+	      </ul>
+	    </td>
+	  </tr>
+
+	  <!-- see posts/index.html.erb for example of what to include in indiviual view yield -->
+			<!--  should start with <tr><td class="row"> -->
+			<!--  and end with </td></tr> -->
+		<%= yield %>
+
+  </tbody>
+</table>
+
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

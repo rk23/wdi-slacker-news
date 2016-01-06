@@ -1,31 +1,13 @@
+<% i = 1; @posts.each do |p| %>
+  <tr>
+    <td class="row">
+      <span class="grey"><%= i %>. </span><div class="votearrow"></div><%= link_to p.title, "/post/" + p.id.to_s %><small> (<a class="small-text" href="<%= p.link %>"><%= p.link %></a>)</small>
+      <div class="small-text subtext"><small>0 points by <%= link_to p.user.name, "/user/" + p.user.id.to_s %> created at <%= p.created_at %> | 
 
-<table>
-  <tbody>
-    <tr>
-      <td id="navbar" bgcolor="#ff6600">
-        <ul id="nav">
-          <li id="brand">S</li>
-          <li><strong><a href="/">Slacker News</a></strong></li>
-          <li>new</li> |
-          <li>comments</li> |
-          <li>show</li> |
-          <li>ask</li> |
-          <li>jobs</li> |
-          <li><a href="/post">submit</a></li>
+      <a href="/post/<%= p.id %>"><%=p.comments.count %> comments</a>
 
-          <!-- DPTODO consolidate login buttons -->
-          <li id="login"><a href="/login">login</a></li>
-        </ul>
-      </td>
-    </tr>
-    <% i = 1; @posts.each do |p| %>
-        <tr>
-          <td class="row">
-            <span class="grey"><%= i %>. </span><div class="votearrow"></div><%=p.title%><small> (<a class="small-text" href="<%=p.link%>"><%=p.link%></a>)</small>
-            <div class="small-text subtext"><small>0 points by <%= p.user.name %> created at <%= p.created_at %> | <a href="/show/<%= p.id%>"><%=p.comments.count %> comments</a> </small></div>
-            <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
-          </td>
-        </tr>
-    <% i = i + 1 end %>
-  </tbody>
-</table>
+       </small></div>
+      <button class="js-delete-btn btn btn-danger" id="<%= p.id %>">Delete</button>
+    </td>
+  </tr>
+<% i = i + 1 end %>
