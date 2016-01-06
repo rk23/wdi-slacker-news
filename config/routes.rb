@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   #Post routes
   get '/post'   => 'posts#new'
   post '/post'  => 'posts#create'
-  get '/show/:id'   => 'posts#show'
+
+  #Comments routes
+  get '/show/:id'   => 'comments#show'
+  post '/show/:id'  => 'comments#create'
 
 end
