@@ -13,10 +13,12 @@ Rails.application.routes.draw do
 
   #Post routes
   get '/post'   => 'posts#new'
+  get '/show/:id'   => 'posts#show'
   post '/post'  => 'posts#create'
 
   #Comments routes
-  get '/show/:id'   => 'comments#show'
+  get  '/reply/:id' => 'comments#show'
+  post '/reply/:id' => 'comments#reply'
   post '/show/:id'  => 'comments#create'
 
 end

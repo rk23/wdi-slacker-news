@@ -15,19 +15,20 @@
       </ul>
     </td>
   </tr>
-      <tr>
-        <td class="row">
-          <div class="votearrow"></div><%=@post.title%><small> (<a class="small-text" href="<%=@post.link%>"><%=@post.link%></a>)</small>
-          <div class="small-text subtext"><small>0 points by <%= @post.user.name %> created at <%= @post.created_at %> | 0 comments </small></div>
-        </td>
-        <td>
-          <%= form_for :comment do |f| %>
-              <%= f.text_area :body %>
-              <%= f.submit "Submit" %>
-          <% end %>
-
-
-        </td>
-      </tr>
+  <tr>
+    <td class="row">
+      <div class="votearrow"></div><%=@post.title%><small> (<a class="small-text" href="<%=@post.link%>"><%=@post.link%></a>)</small>
+      <div class="small-text subtext"><small>0 points by <%= @post.user.name %> created at <%= @post.created_at %> | <%=@post.comments.count %> comments </small></div>
+      <%= form_for :comment do |f| %>
+          <%= f.hidden_field @post%>
+          <%= f.text_area :body %> <br>
+          <%= f.submit "Add comment" %>
+      <% end %>
+      <br>
+      <div id="comments">
+        <%= render partial: "comment", collection: @comments %>
+      </div>
+    </td>
+  </tr>
   </tbody>
 </table>
