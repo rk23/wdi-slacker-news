@@ -8,9 +8,7 @@ body {
   font-family:Verdana, Geneva, sans-serif;
   font-size: 10pt;
 
-  table {
-    background-color: rgb(246, 246, 239);
-  }
+  table {background-color: rgb(246, 246, 239);}
 }
 
 #navbar {
@@ -21,19 +19,21 @@ body {
     padding: 0px;
     margin: 3px;
 
-    li {
-      display: inline-block;
-    }
-    a {
-      color: black;
-      text-decoration: none;
-    }
-
+    li {display: inline-block;}
+    a {color: black;text-decoration: none;}
   }
 }
 
 .small-text {font-size:  8pt; color:#828282;}
 .grey {color:#828282;}
+
+.row {padding: 7px}
+.subtext {padding-left: 30px;}
+
+.modal-backdrop {background: #ff6600 !important;}
+.modal-content {background: #828282;}
+.modal {top: 10%}
+
 .votearrow {
   display: inline-block;
   width: 10px;
@@ -41,15 +41,5 @@ body {
   border: 0px;
   background: url("grayarrow.gif") no-repeat;
 }
-.row {padding: 7px}
-.subtext {padding-left: 30px;}
 
-.modal-backdrop {
-  background: #ff6600 !important;
-}
-.modal-content {
-  background: #828282;
-} 
-.modal {
-  top: 10%
-}
+.js-delete-btn {float: right; margin-top: -30px}
