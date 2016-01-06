@@ -1,0 +1,12 @@
+<% if comment.commentable_type == "Post"%>
+    <% @level = 0 %>
+<% elsif comment.commentable_type == "Comment"%>
+    <% @level = 1 + @level %>
+<% end %>
+
+<div class="comment" style="margin-left: <%= @level * 50 %>px">
+  <div class="small-text subtext"><small><%= comment.user.name %></small></div>
+  <p class="comment-text"><%=comment.body%></p>
+  <a href="/reply/<%=comment.id %>"><div class="small-text subtext"><small>reply</small></div></a>
+  <%= render partial: "comment", collection: comment.replies %>
+</div>
