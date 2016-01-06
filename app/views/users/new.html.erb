@@ -1,7 +1,21 @@
 <h1>Sign up</h1>
-<%= form_for :user, url: "/users" do |f| %>
-    username: <%= f.text_field :name %>
-    email: <%= f.text_field :email %>
-    password: <%= f.password_field :password %>
-    <%= f.submit "Submit" %>
-<% end %>
+
+
+
+    <div class="modal show col-md-8 col-md-offset-2" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+			    <%= form_for :user, url: "/users" do |f| %>
+			    username: <%= f.text_field :name %></br>
+			    email: <%= f.text_field :email %>
+			    password: <%= f.password_field :password %>
+			    <%= f.submit "Submit" %>
+			<% end %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
