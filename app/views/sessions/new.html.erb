@@ -1,58 +1,57 @@
 <tr>
-	<td>
+  <td id="login-row">
+    <div class="text-center">
+      <h4>Please login, or make a new account.</h4>
 
-<div class="text-center">	
-	<h4>Please login, or make a new account.</h4>
+      <!-- <div class="modal-body" id="modal1">
+				<%= form_for :user do |f| %>
+		  		email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
+		    	password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
+		    	<%= f.submit "login" %>
+				<% end %>
+			</div> -->
 
-	<!-- <div class="modal-body" id="modal1">
-		<%= form_for :user do |f| %>
-		    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
-		    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
-		    <%= f.submit "login" %>
-		<% end %>
-	</div> -->
-	<a class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal1">Sign in</a>
+      <a class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal1">Sign in</a>
 
-	<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Make new user</a>
-</div>
+      <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Make new user</a>
+    </div>
 
-<div class="modal fade col-md-8 col-md-offset-2" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	  <div class="modal-content">
-	    <div class="modal-header">
-	      <h4 class="modal-title">Sign In</h4>
-	    </div>
-		  <div class="modal-body">
-			<%= form_for :user do |f| %>
-			    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
-			    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
-			    <%= f.submit "login" %>
-		 	<% end %>
-		 </div>
-	  </div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    <div class="modal fade col-md-8 col-md-offset-2" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Sign In</h4>
+          </div>
+          <div class="modal-body">
+            <%= form_for :user do |f| %>
+                email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
+                password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
+                <%= f.submit "login" %>
+            <% end %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
-<div class="modal fade col-md-8 col-md-offset-2" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	  <div class="modal-content">
-	    <div class="modal-header">
-	      <h4 class="modal-title">New User</h4>
-	    </div>
-		  <div class="modal-body">
-			<h4>Create Account</h4>
+    <div class="modal fade col-md-8 col-md-offset-2" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">New User</h4>
+          </div>
+          <div class="modal-body">
+            <h4>Create Account</h4>
 
-			<%= form_for :user, url: "/users" do |f| %>
-			    username: <%= f.text_field :name %> <br>
-			    email: <%= f.text_field :email %> <br>
-			    password: <%= f.password_field :password %> <br>
-			    <%= f.submit "create account" %>
-			<% end %>
-		  </div>
-	  </div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-	</td>
+            <%= form_for :user, url: "/users" do |f| %>
+                username: <%= f.text_field :name %> <br>
+                email: <%= f.text_field :email %> <br>
+                password: <%= f.password_field :password %> <br>
+                <%= f.submit "create account" %>
+            <% end %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </td>
 </tr>

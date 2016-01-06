@@ -5,4 +5,5 @@ class Comment < ActiveRecord::Base
                       foreign_key: "this_id",
                       as: :commentable
   belongs_to :this, class_name: "Comment"
+  has_many :votes, as: :voteable
 end
