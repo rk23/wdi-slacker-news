@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.modal-bodal #modal1{
-	background-color: black;
+.modal-backdrop {
+	background: #ff6600;
 }
+
+.modal-content {
+	background: #828282;
+} 

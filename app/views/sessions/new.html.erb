@@ -7,17 +7,17 @@
 	    <%= f.submit "login" %>
 	<% end %>
 </div> -->
-<!--   <a data-toggle="modal" href="#myModal1" class="btn btn-primary btn-lg">Sign In!</a>
+<a class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal1">Sign in</a>
 
-  <a data-toggle="modal" href="#myModal2" class="btn btn-primary btn-lg">Make new user</a> -->
+<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Make new user</a>
 
-<div class="modal show col-md-6" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade col-md-8 col-md-offset-2" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 	    <div class="modal-header">
 	      <h4 class="modal-title">Sign In</h4>
 	    </div>
-		  <div class="modal-body" id="modal1">
+		  <div class="modal-body">
 			<%= form_for :user do |f| %>
 			    email: <%= f.text_field :email, placeholder: "Enter email" %> <br>
 			    password: <%= f.password_field :password, placeholder: "Enter password" %> <br>
@@ -29,13 +29,13 @@
 </div><!-- /.modal -->
 
 
-<div class="modal show col-md-6 col-md-offset-6" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade col-md-8 col-md-offset-2" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 	    <div class="modal-header">
 	      <h4 class="modal-title">New User</h4>
 	    </div>
-		  <div class="modal-body raptor" id="modal2">
+		  <div class="modal-body">
 			<h4>Create Account</h4>
 
 			<%= form_for :user, url: "/users" do |f| %>
