@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <tbody>
   <tr>
     <td id="navbar" bgcolor="#ff6600">
@@ -17,7 +17,22 @@
       <% end %>
       <p class="grey">Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>
     </td>
-</table>
+</table> -->
 
-
-
+<div class="modal show col-md-8 col-md-offset-2" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New Post</h4>
+      </div>
+      <div class="modal-body">
+<%= form_for :post do |f| %>
+         Title: <span class="grey">title</span> <%= f.text_field :title%><br>
+         Link:  <span class="grey">url</span> <%= f.text_field :link%><br>
+        <p class="grey">Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>
+          <%= f.submit "Submit" %>
+      <% end %>
+     </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
