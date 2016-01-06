@@ -1,11 +1,23 @@
-<% if comment.commentable_type == "Post"%>
-	<% @level = 0 %>
+<!--Using a stack system to keep track of level-->
+<%queue = Queue.new; if comment.commentable_type == "Post"%>
+    <% @level = 0 %>
+    <% queue.push @level %>
 <% elsif comment.commentable_type == "Comment"%>
-	<% @level = 1 + @level %>
+
+    <% @level = 1 %>
+
+    <% if comment.replies.count > 0 %>
+        <% @level = 1 + @level %>
+        <% comment.replies.count.times do |i| queue.push @level end %>
+    <% else %>
+        <% @level = @level %>
+        <% queue.push @level %>
+    <% end %>
+
 <% end %>
 
-<div class="comment" style="margin-left: <%= @level * 50 %>px">
-  <div class="small-text subtext"><small><%= comment.user.name %></small></div>
+<div class="comment" style="margin-left: <%= queue.pop * 50 + 10%>px">
+  <div class="small-text subtext"><small><%= comment.user.name %> <%= comment.created_at %></small></div>
   <p class="comment-text"><%=comment.body%></p>
   <a href="/reply/<%=comment.id %>"><div class="small-text subtext"><small>reply</small></div></a>
   <%= render partial: "comment", collection: comment.replies %>
