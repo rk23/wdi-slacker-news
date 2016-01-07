@@ -1,0 +1,42 @@
+<tr class='athing'>
+	<td class='ind'>
+	</td>
+
+	<td valign="top" class="votelinks"><center>
+		<a id="up_10855095" href="vote?for=10855095&amp;dir=up&amp;goto=newcomments">
+			<div class="votearrow" title="upvote">
+			</div>
+		</a>
+		</center>
+	</td>
+
+	<td class="default">
+		<div style="margin-top:2px; margin-bottom:-10px;">
+			<span class="comhead">
+        <a href="user?id=pcwalton">pcwalton
+        </a>
+      	<span class="age">
+      		<a href="item?id=10855095">0 minutes ago
+      		</a>
+      	</span>
+      	<span class="par">
+      		 | <a href="item?id=10854670">parent</a>
+      	</span>
+      	<span class="deadmark">
+      	</span>
+      	<span class='storyon'> | on: <a href="item?id=10848890">Robigalia: seL4 and Rust</a>
+      	</span>
+      </span>
+    </div>
+    
+    <br>
+    
+    <span class="comment">
+      <span class="c00">It is. But that will still only prove whether the type system can correctly prevent memory safety problems. As many security people correctly point out, memory safety doesn&#x27;t guarantee security of the programs you write in Rust. seL4 has a stronger security proof that can guarantee not only that seL4 doesn&#x27;t have (for example) use-after-frees but that it also actually works right (for a formally-specified notion of &quot;works right&quot;).<p>The reason you&#x27;d want to combine seL4 with Rust is to give confidence that (a) the core part of the system (microkernel) works right and that (b) the less core part of the system (drivers, libc) is least free from nasty memory safety problems. To a first approximation, it&#x27;s a compromise between a project like the OS in the &quot;Writing an OS in Rust&quot; series, which guarantees memory safety but doesn&#x27;t guarantee that any part of the system actually does the right thing, and a hypothetical fully formally-verified OS, which is (with current technology) something that would be way too expensive and time-consuming to be practical.
+      </span>
+    </span>
+    <div class='reply'></div>
+  </td>
+</tr>
+
+<tr class="spacer" style="height:15px"></tr>

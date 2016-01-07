@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'posts#index'
-
-  #User routes
+  #Users routes
   get '/signup'       => 'users#new'
   post '/users'       => 'users#create'
   get '/user/:id'     => 'users#show'
@@ -12,12 +10,16 @@ Rails.application.routes.draw do
   post '/login'       => 'sessions#create'
   get '/logout'       => 'sessions#destroy'
 
-  #Post routes
+  #Posts routes - display list of all posts/comments
+  root                   'posts#index'
+  get '/newest'       => 'posts#newest'
+  get '/newcomments'  => 'posts#newcomments'
+
+  #Posts routes - manipulate posts
   get '/post'         => 'posts#new'
   post '/post'        => 'posts#create'
   delete '/post/:id'  => 'posts#destroy'
   get '/post/:id'     => 'posts#show'
-  post '/post/:id'    => 'comments#create'
 
   resources :posts, except: [:destroy] do
     
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   #Comments routes
+  post '/post/:id'    => 'comments#create'
   get  '/reply/:id'   => 'comments#show'
   post '/reply/:id'   => 'comments#reply'
 

@@ -2,8 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @posts = @user.posts
-    # @comments = @user.comments
+    @posts = @user.posts.sort_by{|x| x.created_at}.reverse
+    @comments = @user.comments.sort_by{|x| x.created_at}.reverse
+      # @user.comments isn't returning anything
   end
 
   def new
