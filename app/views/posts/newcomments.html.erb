@@ -1,0 +1,16 @@
+<% i = 1; @comments.each do |c| %>
+  <tr>
+    <td class="row">
+
+
+<div class="small-text subtext">
+  <small>
+    by <%= link_to c.user.name, "/user/" + c.user.id.to_s %> on <span style="font-style: italic;"><%= c.commentable_id %></span>, created at <%= c.created_at %>
+  </small>
+</div>
+
+<%= c.body %>
+
+    </td>
+  </tr>
+<% i = i + 1 end %>

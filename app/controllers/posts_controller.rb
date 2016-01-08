@@ -1,9 +1,23 @@
 class PostsController < ApplicationController
   before_action :is_authenticated?
 
+  #Display
+
   def index
-    @post = Post.all.sort_by{|x| x.total_votes}.reverse
+    @posts = Post.all.sort_by{|x| x.total_votes}.reverse
   end
+
+  def newest
+    @posts = Post.all.sort_by{|x| x.created_at}.reverse
+    render "posts/index"
+  end
+
+  def newcomments
+    @comments = Comment.all.sort_by{|x| x.created_at}.reverse
+  end
+
+
+  #Post manipulation
 
   def show
     @post = Post.find params[:id]
